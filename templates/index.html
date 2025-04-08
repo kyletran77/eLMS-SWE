@@ -22,8 +22,10 @@
       <!-- Navbar Starts -->
       <nav class="navbar sticky-top navbar-expand-lg navbar-dark navbar-mod">
          <div class="container-fluid">
-            <a class="navbar-brand fw-bold fs-5 px-2 py-1" href="/admin" target="_blank" data-bs-toggle="tooltip"
-               data-bs-placement="bottom" title="Access admin panel">elms</a>
+            <a class="navbar-brand fw-bold px-2 py-1" href="/admin" target="_blank" data-bs-toggle="tooltip"
+               data-bs-placement="bottom" title="Access admin panel">
+               <img src="{% static 'images/Boon-dah-Learning-logo.jpg' %}" alt="Boon-dah Learning Logo" height="40">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
                aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
             <span class=" navbar-toggler-icon"></span>
@@ -63,6 +65,23 @@
       <!-- Navbar Ends -->
       {% block  content %}
       {% endblock  %}
+      
+      <!-- Boon-dah Learning Footer -->
+      <footer class="bg-dark text-white mt-5 py-4">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                  <h5>Boon-dah Learning</h5>
+                  <p class="small">Visual Literacy Resources + Hands-On Science = STEM Success for Neurodiverse Students</p>
+               </div>
+               <div class="col-md-6 text-end">
+                  <p class="small">Copyright &copy; Boon-dah Learning 2020-2025. All rights reserved.</p>
+                  <p class="small">Featuring Pumpus, Filberta, and Filbin</p>
+               </div>
+            </div>
+         </div>
+      </footer>
+      
       <script src=" {% static 'js/bootstrap.bundle.min.js' %} "></script>
    </body>
 </html>

@@ -5,7 +5,7 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Log in | eLMS</title>
+      <title>Log in | Boon-dah Learning</title>
       <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/icon/apple-touch-icon.png' %}">
       <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/icon/favicon-32x32.png' %}">
       <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/icon/favicon-16x16.png' %}">
@@ -21,10 +21,14 @@
             <div class="container">
                <div class="signin-content">
                   <div class="signin-image">
-                     <figure><img src="{% static 'images/login-bg.jpg' %}" alt="sing up image"></figure>
+                     <figure><img src="{% static 'images/Boon-dah-Learning-logo.jpg' %}" alt="Boon-dah Learning Logo" class="img-fluid"></figure>
+                     <div class="p-3 bg-light rounded shadow-sm mt-3">
+                        <h4 class="text-primary">Visual Literacy + Hands-On Science = STEM Success</h4>
+                        <p class="mb-0">Designed for neurodiverse students in Grades 3-5</p>
+                     </div>
                   </div>
                   <div class="signin-form">
-                     <h2 class="form-title">Sign in to eLMS</h2>
+                     <h2 class="form-title">Welcome to Boon-dah Learning</h2>
                      <form method="POST" class="register-form" id="login-form">
                            {% csrf_token %}
                            <div class="form-group">
@@ -44,16 +48,17 @@
                            <div class="dropdown">
                               <a class="dropdown-toggle" id="dropdownMenuButton1"
                                  data-bs-toggle="dropdown" aria-expanded="false" role="button">
-                              Sign in as Guest
+                              Meet Our Characters
                               </a>
                               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                 <li><a class="dropdown-item" href="/student">Student</a></li>
-                                 <li><a class="dropdown-item" href="/teacher">Teacher</a></li>
+                                 <li><a class="dropdown-item" href="#">Pumpus (Science Explorer)</a></li>
+                                 <li><a class="dropdown-item" href="#">Filberta (Tech Expert)</a></li>
+                                 <li><a class="dropdown-item" href="#">Filbin (Environmental Friend)</a></li>
                               </ul>
                            </div>
                         </div>
                         <div class="">
-                           <a href="/admin" target="_blank">Sign in as Admin</a>
+                           <a href="/admin" target="_blank">Teacher Access</a>
                         </div>
                      </div>
                      {% if error_messages %}

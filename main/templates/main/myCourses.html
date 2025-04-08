@@ -1,5 +1,6 @@
 {% extends 'index.html' %}
-{% block title %}Dashboard | eLMS {% endblock title %}
+{% load static %}
+{% block title %}My Learning Path | Boon-dah Learning {% endblock title %}
 {% block profile %}
 {% url 'profile' student.student_id %}
 {% endblock %}
@@ -19,38 +20,154 @@
       <div class="container shadow-sm">
          <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb p-3">
-               <li class="breadcrumb-item active" aria-current="page">My courses</li>
+               <li class="breadcrumb-item active" aria-current="page">My Learning Adventures</li>
             </ol>
          </nav>
       </div>
+      
+      <!-- Welcome Banner -->
+      <div class="card mb-4" style="background-color: #4CAF50; color: white;">
+         <div class="card-body p-4">
+            <div class="row align-items-center">
+               <div class="col-md-8">
+                  <h3 class="card-title fw-bold mb-2">Welcome to your Boon-dah Learning Journey!</h3>
+                  <p class="card-text">Join Pumpus, Filberta, and Filbin as they guide you through exciting STEM adventures designed especially for neurodiverse learners.</p>
+               </div>
+               <div class="col-md-4 text-center">
+                  <img src="{% static 'images/Boon-dah-Learning-logo.jpg' %}" alt="Boon-dah Learning Logo" class="img-fluid rounded" style="max-height: 120px;">
+               </div>
+            </div>
+         </div>
+      </div>
+      
       {% if courses %}
       <!-- Course container -->
       <div class="card_primary d-flex justify-content-center flex-wrap">
-         {% for courses in courses %}
-         <!-- individual course starts -->
-         <div class="cd card text-center my-4 mx-4" style="width: 30rem !important;">
-            <div class="card-header text-light fw-bold">
-               Dept. of {{courses.department}}
+         
+         <!-- Earth Science course -->
+         <div class="cd card text-center my-4 mx-4" style="width: 30rem !important; border-color: #4CAF50;">
+            <div class="card-header text-light fw-bold" style="background-color: #4CAF50;">
+               Grade 3-4 Science
             </div>
             <div class="card-body">
-               <h5 class="card-title fw-bold"> {{courses.department}}-{{courses.code}} : {{courses.name}}</h5>
-               <a href="{% url 'course' courses.code %}" class="btn btn-outline-dark px-5">Enter</a>
+               <div class="d-flex align-items-center justify-content-between mb-3">
+                  <h5 class="card-title fw-bold mx-2">Earth's Systems with Pumpus & Pals</h5>
+               </div>
+               <p class="card-text mb-3">Explore weather, water cycles, and how Earth's surface changes over time with Pumpus and Filbin!</p>
+               <div class="mb-3">
+                  <span class="badge bg-info me-1">NGSSS Aligned</span>
+                  <span class="badge bg-warning text-dark me-1">5E Framework</span>
+                  <span class="badge bg-success me-1">Visual Supports</span>
+               </div>
+               <div class="progress mb-3" style="height: 10px;">
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+               </div>
+               <a href="{% url 'course' 101 %}" class="btn btn-outline-success px-5">Continue Learning</a>
             </div>
-            <div class="card-footer text-light fw-bold">
-               {% if courses.faculty %}
-               Course Teacher : {{ courses.faculty.name}}
-               {% else %}
-               Teacher not assigned yet
-               {% endif %}
+            <div class="card-footer text-light fw-bold" style="background-color: #4CAF50;">
+               8 Engaging Lessons with Hands-On Activities
             </div>
          </div>
-         <!-- individual course ends -->
-         {% endfor %}
-         <!-- Course container ends -->
+         
+         <!-- Forces and Interactions course -->
+         <div class="cd card text-center my-4 mx-4" style="width: 30rem !important; border-color: #2196F3;">
+            <div class="card-header text-light fw-bold" style="background-color: #2196F3;">
+               Grade 3-4 Science
+            </div>
+            <div class="card-body">
+               <div class="d-flex align-items-center justify-content-between mb-3">
+                  <h5 class="card-title fw-bold mx-2">Forces and Interactions with Filberta</h5>
+               </div>
+               <p class="card-text mb-3">Investigate how objects move, the effects of forces, and magnetic interactions!</p>
+               <div class="mb-3">
+                  <span class="badge bg-info me-1">NGSSS Aligned</span>
+                  <span class="badge bg-warning text-dark me-1">5E Framework</span>
+                  <span class="badge bg-primary me-1">Drama-Based Learning</span>
+               </div>
+               <div class="progress mb-3" style="height: 10px;">
+                  <div class="progress-bar bg-info" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+               </div>
+               <a href="{% url 'course' 102 %}" class="btn btn-outline-primary px-5">Start Course</a>
+            </div>
+            <div class="card-footer text-light fw-bold" style="background-color: #2196F3;">
+               10 Interactive Lessons with Engineering Challenges
+            </div>
+         </div>
+         
+         <!-- Life Cycles course -->
+         <div class="cd card text-center my-4 mx-4" style="width: 30rem !important; border-color: #FF9800;">
+            <div class="card-header text-light fw-bold" style="background-color: #FF9800;">
+               Grade 3-4 Science
+            </div>
+            <div class="card-body">
+               <div class="d-flex align-items-center justify-content-between mb-3">
+                  <h5 class="card-title fw-bold mx-2">Life Cycles and Traits</h5>
+               </div>
+               <p class="card-text mb-3">Discover how plants and animals grow, develop, and pass traits to offspring!</p>
+               <div class="mb-3">
+                  <span class="badge bg-info me-1">NGSSS Aligned</span>
+                  <span class="badge bg-warning text-dark me-1">5E Framework</span>
+                  <span class="badge bg-danger me-1">Readers' Theater</span>
+               </div>
+               <div class="progress mb-3" style="height: 10px;">
+                  <div class="progress-bar bg-warning" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+               </div>
+               <a href="{% url 'course' 103 %}" class="btn btn-outline-warning px-5">Start Course</a>
+            </div>
+            <div class="card-footer text-light fw-bold" style="background-color: #FF9800;">
+               9 Narrative-Based Lessons with Visual Supports
+            </div>
+         </div>
       </div>
+      
+      <!-- Learning Resources Section -->
+      <div class="card mb-4 mt-5">
+         <div class="card-header bg-info text-white">
+            <h4 class="mb-0">Learning Resources for Neurodiverse Students</h4>
+         </div>
+         <div class="card-body">
+            <div class="row">
+               <div class="col-md-4 mb-3">
+                  <div class="card h-100">
+                     <div class="card-body">
+                        <h5 class="card-title fw-bold">Visual Learning Tools</h5>
+                        <p class="card-text">Access specially designed visual supports to help you understand complex science concepts.</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Browse Visual Aids</a>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4 mb-3">
+                  <div class="card h-100">
+                     <div class="card-body">
+                        <h5 class="card-title fw-bold">Drama-Based Learning</h5>
+                        <p class="card-text">Explore readers' theater scripts and role-playing activities to enhance understanding.</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">View Scripts</a>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4 mb-3">
+                  <div class="card h-100">
+                     <div class="card-body">
+                        <h5 class="card-title fw-bold">Hands-On Experiments</h5>
+                        <p class="card-text">Step-by-step instructions for activities you can do with simple materials at home.</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Find Experiments</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      
       {% else %}
-      <div class="text-center fs-5 text-secondary">
-         <p>You are not enrolled in any courses</p>
+      <!-- Empty state message -->
+      <div class="container shadow rounded p-5 my-5 bg-light">
+         <div class="text-center">
+            <img src="{% static 'images/Boon-dah-Learning-logo.jpg' %}" alt="Boon-dah Learning Logo" style="max-height: 150px;" class="rounded">
+            <h3 class="mt-3">Welcome to Boon-dah Learning!</h3>
+            <p class="lead">It looks like you haven't enrolled in any courses yet.</p>
+            <p>Join Pumpus and friends on exciting STEM adventures designed for neurodiverse learners!</p>
+            <a href="{% url 'courses' %}" class="btn btn-primary mt-3">Browse Available Courses</a>
+         </div>
       </div>
       {% endif %}
    </div>
